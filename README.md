@@ -1,161 +1,57 @@
-# 📄 Conversor de Documentos para PDF
+# 📄 Conversor de Formatos Antigos do Office
 
-✅ **Status:** PRONTO PARA USO - Todos os testes passaram com sucesso!
+Aplicação web em Python/Streamlit que converte **formatos antigos do Office para os formatos modernos**, usando o LibreOffice em modo headless.
 
-Aplicação web desenvolvida em Python/Streamlit para conversão bidirecional de documentos Office ↔ PDF em alta qualidade.
+## 🎯 O que faz
 
-## 🎯 Funcionalidades
+| Entrada (antigo) | Saída (moderno) |
+| --- | --- |
+| `.doc` · `.odt` · `.rtf` | **`.docx`** (Word) |
+| `.xls` · `.ods` | **`.xlsx`** (Excel) |
+| `.ppt` · `.odp` | **`.pptx`** (PowerPoint) |
 
-- ✅ Conversão de documentos Office para PDF
-- ✅ Conversão de PDF para DOCX
-- ✅ Suporte a múltiplos formatos: DOC, DOCX, XLS, XLSX, PPT, PPTX, ODT, ODS, ODP
-- ✅ Interface simples e intuitiva (tela única)
-- ✅ PDFs em alta resolução para impressão profissional
-- ✅ Processamento seguro (arquivos não são armazenados)
-- ✅ Upload e download direto no navegador
-- ✅ Estatísticas de conversão em tempo real
-- ✅ Seletor de qualidade (Alta/Média/Padrão)
+- Interface de tela única (upload → converter → baixar)
+- Processamento em diretórios temporários — nenhum arquivo é armazenado
+- Feito para rodar embutido (lightbox) no [AtlasDocs](https://atlasdocs.io) e também de forma autônoma
 
-## 🧪 Status dos Testes
+## 🚀 Rodar localmente
 
-| Teste | Status | Data |
-|-------|--------|------|
-| Infraestrutura | ✅ PASSOU | 20/07/2026 |
-| Conversão DOCX→PDF | ✅ PASSOU | 20/07/2026 |
-| Interface Web | ✅ PASSOU | 20/07/2026 |
-| LibreOffice 26.2.4.2 | ✅ FUNCIONANDO | 20/07/2026 |
-| Todas dependências | ✅ INSTALADAS | 20/07/2026 |
+Pré-requisitos: Python 3.8+ e LibreOffice instalado.
 
-**Resultado:** 🏆 100% dos testes aprovados!
-
-Para detalhes completos, veja: [RESULTADO_TESTES.md](RESULTADO_TESTES.md)
-
-## 🚀 Como usar localmente
-
-### Pré-requisitos
-
-- Python 3.8+
-- LibreOffice instalado no sistema
-
-#### Instalando LibreOffice
-
-**Windows:**
-```bash
-# Baixe e instale de: https://www.libreoffice.org/download/download/
-```
-
-**Linux (Ubuntu/Debian):**
-```bash
-sudo apt-get update
-sudo apt-get install libreoffice libreoffice-writer libreoffice-calc libreoffice-impress
-```
-
-**macOS:**
-```bash
-brew install --cask libreoffice
-```
-
-### Instalação
-
-1. Clone o repositório:
-```bash
-git clone <seu-repositorio>
-cd libreoffice
-```
-
-2. Crie um ambiente virtual:
-```bash
-python -m venv venv
-```
-
-3. Ative o ambiente virtual:
-
-**Windows:**
-```bash
-venv\Scripts\activate
-```
-
-**Linux/macOS:**
-```bash
-source venv/bin/activate
-```
-
-4. Instale as dependências:
 ```bash
 pip install -r requirements.txt
-```
-
-### Executar a aplicação
-
-```bash
 streamlit run app.py
 ```
 
-A aplicação será aberta automaticamente no navegador em `http://localhost:8501`
+Abre em `http://localhost:8501`.
 
 ## ☁️ Deploy no Streamlit Cloud
 
-1. Faça push do código para o GitHub
-2. Acesse [share.streamlit.io](https://share.streamlit.io)
-3. Conecte seu repositório
-4. Configure o arquivo `packages.txt` (já incluído) para instalar o LibreOffice
-5. Deploy!
+1. Faça push para o GitHub
+2. Em [share.streamlit.io](https://share.streamlit.io), conecte o repositório
+3. O `packages.txt` (incluído) instala o LibreOffice automaticamente
+4. Deploy
 
-## 📋 Estrutura do Projeto
+## 📋 Estrutura
 
 ```
-libreoffice/
-├── app.py              # Aplicação principal
-├── requirements.txt    # Dependências Python
-├── packages.txt        # Pacotes do sistema (LibreOffice)
-├── .gitignore         # Arquivos ignorados pelo Git
-└── README.md          # Este arquivo
+doc-para-docx/
+├── app.py            # Aplicação principal
+├── requirements.txt  # Dependência Python (streamlit)
+├── packages.txt      # Pacotes do sistema (LibreOffice)
+└── README.md
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
-- **Python 3.8+**
-- **Streamlit** - Framework web
-- **LibreOffice** - Engine de conversão
-- **subprocess** - Execução de comandos do sistema
+- **Streamlit** — interface web
+- **LibreOffice** (headless) — motor de conversão
+- **subprocess** — execução do LibreOffice
 
-## 📝 Formatos Suportados
+## 🔒 Privacidade
 
-### Entrada (Conversão para PDF)
-- 📝 Documentos: DOC, DOCX, ODT
-- 📊 Planilhas: XLS, XLSX, ODS
-- 📽️ Apresentações: PPT, PPTX, ODP
-
-## ⚙️ Configurações de Qualidade
-
-A aplicação utiliza o LibreOffice em modo headless com configurações otimizadas para:
-- Alta resolução de saída
-- Preservação de formatação
-- Fidelidade ao documento original
-- Qualidade de impressão profissional
-
-## 🔒 Segurança e Privacidade
-
-- Todos os arquivos são processados em diretórios temporários
-- Nenhum arquivo é armazenado permanentemente
-- Limpeza automática após cada conversão
-- Processamento local/isolado
-
-## 📄 Licença
-
-Este projeto é open source e está disponível sob a licença MIT.
-
-## 👥 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-- Reportar bugs
-- Sugerir novas funcionalidades
-- Enviar pull requests
-
-## 📞 Suporte
-
-Se encontrar problemas ou tiver dúvidas, abra uma issue no repositório.
+Os arquivos são processados em diretórios temporários e removidos após a conversão. Nada é armazenado permanentemente.
 
 ---
 
-Desenvolvido com ❤️ usando Python e Streamlit
+Desenvolvido com ❤️ usando Python e Streamlit.
