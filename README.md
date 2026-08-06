@@ -12,7 +12,6 @@ Aplicação web em Python/Streamlit que converte **formatos antigos do Office pa
 
 - Interface de tela única (upload → converter → baixar)
 - Processamento em diretórios temporários — nenhum arquivo é armazenado
-- Feito para rodar embutido (lightbox) no [AtlasDocs](https://atlasdocs.io) e também de forma autônoma
 
 ## 🚀 Rodar localmente
 
